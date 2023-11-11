@@ -837,35 +837,35 @@ class _NewPostScreenState extends State<NewPostScreen> {
                                         },
                                       )
                                     : const SizedBox.shrink(),
-                                isMediaPost && postMedia.isEmpty
-                                    ? const SizedBox(width: 8)
-                                    : const SizedBox.shrink(),
-                                isMediaPost && postMedia.isEmpty
-                                    ? LMIconButton(
-                                        icon: LMIcon(
-                                          type: LMIconType.svg,
-                                          assetPath: kAssetVideoIcon,
-                                          color: Theme.of(context)
-                                              .colorScheme
-                                              .primary,
-                                          boxPadding: 0,
-                                          size: 44,
-                                        ),
-                                        onTap: (active) async {
-                                          onUploading();
-                                          List<MediaModel>? pickedMediaFiles =
-                                              await PostMediaPicker.pickVideos(
-                                                  postMedia.length);
-                                          if (pickedMediaFiles != null) {
-                                            setPickedMediaFiles(
-                                                pickedMediaFiles);
-                                            onUploadedMedia(true);
-                                          } else {
-                                            onUploadedMedia(false);
-                                          }
-                                        },
-                                      )
-                                    : const SizedBox.shrink(),
+                                // isMediaPost && postMedia.isEmpty
+                                //     ? const SizedBox(width: 8)
+                                //     : const SizedBox.shrink(),
+                                // isMediaPost && postMedia.isEmpty
+                                //     ? LMIconButton(
+                                //         icon: LMIcon(
+                                //           type: LMIconType.svg,
+                                //           assetPath: kAssetVideoIcon,
+                                //           color: Theme.of(context)
+                                //               .colorScheme
+                                //               .primary,
+                                //           boxPadding: 0,
+                                //           size: 44,
+                                //         ),
+                                //         onTap: (active) async {
+                                //           onUploading();
+                                //           List<MediaModel>? pickedMediaFiles =
+                                //               await PostMediaPicker.pickVideos(
+                                //                   postMedia.length);
+                                //           if (pickedMediaFiles != null) {
+                                //             setPickedMediaFiles(
+                                //                 pickedMediaFiles);
+                                //             onUploadedMedia(true);
+                                //           } else {
+                                //             onUploadedMedia(false);
+                                //           }
+                                //         },
+                                //       )
+                                //     : const SizedBox.shrink(),
                                 isDocumentPost
                                     ? const SizedBox(width: 8)
                                     : const SizedBox.shrink(),
