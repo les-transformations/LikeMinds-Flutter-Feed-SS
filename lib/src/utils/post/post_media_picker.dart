@@ -3,8 +3,6 @@ import 'dart:io';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/widgets.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:likeminds_feed_ss_fl/likeminds_feed_ss_fl.dart';
 import 'package:likeminds_feed_ss_fl/src/utils/local_preference/user_local_preference.dart';
 import 'package:likeminds_feed_ss_fl/src/utils/post/post_utils.dart';
 import 'package:likeminds_feed_ui_fl/likeminds_feed_ui_fl.dart';
@@ -97,7 +95,12 @@ class PostMediaPicker {
 
       final config =
           await UserLocalPreference.instance.getCommunityConfigurations();
-      final sizeLimit = (config.value!["max_video_size"]! / 1024).floor();
+      final sizeLimit;
+      if (config.value != null && config.value!["max_image_size"] != null) {
+        sizeLimit = config.value!["max_image_size"]! / 1024;
+      } else {
+        sizeLimit = 100;
+      }
 
       if (pickedFiles!.files.isNotEmpty) {
         if (currentMediaLength + 1 > 10) {
