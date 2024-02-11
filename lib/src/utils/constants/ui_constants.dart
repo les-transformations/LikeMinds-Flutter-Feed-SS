@@ -58,6 +58,7 @@ class LMThemeData {
       SizedBox(height: kPaddingMedium);
 
   static final ThemeData suraasaTheme = ThemeData(
+    useMaterial3: false,
     colorScheme: ColorScheme.fromSeed(
       seedColor: LMThemeData.kPrimaryColor,
       primary: LMThemeData.kPrimaryColor,
